@@ -1,5 +1,5 @@
 /*
- *  Copyright © 2005-2018 Team Kodi
+ *  Copyright © 2005-2019 Team Kodi
  *  Copyright © 1999-2010 Terence M. Welsh
  *  Ported to Linux by Tugrul Galatali <tugrul@galatali.com>
  *  This file is part of Kodi - https://kodi.tv
@@ -18,6 +18,12 @@
  *  along with Kodi; see the file COPYING.  If not, see
  *  <http://www.gnu.org/licenses/>.
  *
+ */
+
+/*
+ * Code is based on:
+ *   https://github.com/reallyslickscreensavers/reallyslickscreensavers
+ *   http://rss-glx.sourceforge.net/
  */
 
 #pragma once

@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2005-2018 Team Kodi
+ *  Copyright (C) 2005-2019 Team Kodi
  *  Copyright (C) 2002 Jeremie Allard (Hufo / N.A.A.)
  *  This file is part of Kodi - https://kodi.tv
  *
@@ -20,9 +20,7 @@
  */
 
 /*
- * Code taken from
- * https://github.com/reallyslickscreensavers/reallyslickscreensavers
- * and reworked to GL 3.0.
+ * Code taken from http://rss-glx.sourceforge.net/ and reworked to GL 3.0.
  */
 
 #include "main.h"

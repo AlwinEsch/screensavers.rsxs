@@ -1,7 +1,8 @@
 /*
- *      Copyright (C) 2005-2019 Team Kodi
- *      Copyright (C) 2002 <hk@dgmr.nl>
- *      Ported to Linux by Tugrul Galatali <tugrul@galatali.com>
+ *  Copyright (C) 2005-2019 Team Kodi
+ *  Copyright (C) 2002 <hk@dgmr.nl>
+ *  Ported to Linux by Tugrul Galatali <tugrul@galatali.com>
+ *  This file is part of Kodi - https://kodi.tv
  *
  *  This Program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -19,8 +20,7 @@
  */
 
 /*
- * Code is based on:
- *   http://rss-glx.sourceforge.net/
+ * Code taken from http://rss-glx.sourceforge.net/ and reworked to GL 3.0.
  */
 
 #include "main.h"

@@ -36,6 +36,12 @@ add_subdirectory(lib/rsMath)
 list(APPEND DEPENDS glm gli rsMath kodiOpenGL)
 list(APPEND DEPLIBS rsMath kodiOpenGL Implicit Rgbhsl)
 
+if(NOT ${CORE_SYSTEM_NAME} STREQUAL "")
+  if(${CORE_SYSTEM_NAME} STREQUAL "osx" OR ${CORE_SYSTEM_NAME} STREQUAL "ios")
+    list(APPEND DEPLIBS "-framework CoreVideo")
+  endif()
+endif()
+
 get_directory_property(BASE_DEFINITIONS COMPILE_DEFINITIONS)
 message(STATUS "Compile definitions: ${BASE_DEFINITIONS}")
 if(CMAKE_BUILD_TYPE)

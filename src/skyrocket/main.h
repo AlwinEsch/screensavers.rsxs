@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2005-2018 Team Kodi
+ *  Copyright (C) 2005-2019 Team Kodi
  *  Copyright (C) 1999-2010 Terence M. Welsh
  *  This file is part of Kodi - https://kodi.tv
  *

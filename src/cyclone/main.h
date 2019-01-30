@@ -20,9 +20,7 @@
  */
 
 /*
- * Code is based on:
- *   https://github.com/reallyslickscreensavers/reallyslickscreensavers
- *   http://rss-glx.sourceforge.net/
+ * Code taken from http://rss-glx.sourceforge.net/ and reworked to GL 3.0.
  */
 
 #pragma once

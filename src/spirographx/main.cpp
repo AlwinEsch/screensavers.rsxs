@@ -1,5 +1,5 @@
 /*
- *  Copyright © 2005-2018 Team Kodi
+ *  Copyright © 2005-2019 Team Kodi
  *  Copyright (C) 2003 Holmes Futrell <holmes@neatosoftware.com>
  *  Ported to Linux by Tugrul Galatali <tugrul@galatali.com>
  *  This file is part of Kodi - https://kodi.tv
@@ -18,6 +18,11 @@
  *  along with Kodi; see the file COPYING.  If not, see
  *  <http://www.gnu.org/licenses/>.
  *
+ */
+
+/*
+ * Code is based on:
+ *   http://rss-glx.sourceforge.net/
  */
 
 #include "main.h"
