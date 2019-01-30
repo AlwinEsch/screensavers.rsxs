@@ -9,6 +9,8 @@ enable_language(CXX)
 cmake_policy(SET CMP0054 NEW)
 
 find_package(Kodi REQUIRED)
+find_package(glm REQUIRED)
+find_package(gli REQUIRED)
 
 #set(APP_RENDER_SYSTEM "gles")
 
@@ -26,14 +28,12 @@ endif()
 
 include_directories(${KODI_INCLUDE_DIR}/..) # Hack way with "/..", need bigger Kodi cmake rework to match right include ways (becomes done in future)
 
-add_subdirectory(lib/glm)
-add_subdirectory(lib/gli)
 add_subdirectory(lib/kodi/OpenGL)
 add_subdirectory(lib/Implicit)
 add_subdirectory(lib/Rgbhsl)
 add_subdirectory(lib/rsMath)
 
-list(APPEND DEPENDS glm gli rsMath kodiOpenGL)
+list(APPEND DEPENDS rsMath kodiOpenGL)
 list(APPEND DEPLIBS rsMath kodiOpenGL Implicit Rgbhsl)
 
 if(NOT ${CORE_SYSTEM_NAME} STREQUAL "")
