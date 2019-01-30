@@ -20,4 +20,6 @@ set(COLORFIRE_HEADERS ${CMAKE_CURRENT_LIST_DIR}/main.h
 
 list(APPEND includes ${BZIP2_INCLUDE_DIRS})
 
-build_addon(screensaver.rsxs.colorfire COLORFIRE DEPLIBS ${BZIP2_LIBRARIES})
+set(COLORFIRE_DEPLIBS ${DEPLIBS} ${BZIP2_LIBRARIES})
+
+build_addon(screensaver.rsxs.colorfire COLORFIRE COLORFIRE_DEPLIBS)

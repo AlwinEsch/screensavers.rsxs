@@ -18,6 +18,6 @@ set(HUFO_TUNNEL_SOURCES ${CMAKE_CURRENT_LIST_DIR}/main.cpp
 set(HUFO_TUNNEL_HEADERS ${CMAKE_CURRENT_LIST_DIR}/main.h
                         ${CMAKE_CURRENT_LIST_DIR}/hufo_tunnel_textures.h)
 
-build_addon(screensaver.rsxs.hufo_tunnel HUFO_TUNNEL DEPLIBS ${BZIP2_LIBRARIES})
+set(HUFO_TUNNEL_DEPLIBS ${DEPLIBS} ${BZIP2_LIBRARIES})
 
-message(FATAL_ERROR "---- ${BZIP2_LIBRARIES}")
+build_addon(screensaver.rsxs.hufo_tunnel HUFO_TUNNEL HUFO_TUNNEL_DEPLIBS)
