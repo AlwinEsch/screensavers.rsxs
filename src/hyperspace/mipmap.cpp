@@ -3285,7 +3285,6 @@ static int checkMipmapArgs(GLenum internalFormat, GLenum format, GLenum type)
 static GLboolean legalFormat(GLenum format)
 {
     switch(format) {
-      case GL_COLOR_INDEX:
       case GL_STENCIL_INDEX:
       case GL_DEPTH_COMPONENT:
       case GL_RED:
@@ -3306,7 +3305,6 @@ static GLboolean legalFormat(GLenum format)
 static GLboolean legalType(GLenum type)
 {
     switch(type) {
-      case GL_BITMAP:
       case GL_BYTE:
       case GL_UNSIGNED_BYTE:
       case GL_SHORT:
@@ -3815,10 +3813,10 @@ static int Build2DMipmapLevelsCore(GLenum target, GLint internalFormat,
     assert(checkMipmapArgs(internalFormat,format,type) == 0);
     assert(width >= 1 && height >= 1);
 
-    if(type == GL_BITMAP) {
-        return bitmapBuild2DMipmaps(target, internalFormat, width, height,
-                format, type, data);
-    }
+//     if(type == GL_BITMAP) {
+//         return bitmapBuild2DMipmaps(target, internalFormat, width, height,
+//                 format, type, data);
+//     }
 
     srcImage = dstImage = NULL;
 
@@ -4796,8 +4794,8 @@ static GLfloat bytes_per_element(GLenum type)
      * Return the number of bytes per element, based on the element type
      */
     switch(type) {
-      case GL_BITMAP:
-        return 1.0 / 8.0;
+//       case GL_BITMAP:
+//         return 1.0 / 8.0;
       case GL_UNSIGNED_SHORT:
         return(sizeof(GLushort));
       case GL_SHORT:
@@ -4834,7 +4832,7 @@ static GLfloat bytes_per_element(GLenum type)
 
 static GLint is_index(GLenum format)
 {
-    return format == GL_COLOR_INDEX || format == GL_STENCIL_INDEX;
+    return format == GL_STENCIL_INDEX;
 }
 
 /*
@@ -4849,11 +4847,11 @@ static GLint image_size(GLint width, GLint height, GLenum format, GLenum type)
 assert(width > 0);
 assert(height > 0);
     components = elements_per_group(format,type);
-    if (type == GL_BITMAP) {
-        bytes_per_row = (width + 7) / 8;
-    } else {
+//     if (type == GL_BITMAP) {
+//         bytes_per_row = (width + 7) / 8;
+//     } else {
         bytes_per_row = bytes_per_element(type) * width;
-    }
+//     }
     return bytes_per_row * height * components;
 }
 
@@ -4888,48 +4886,49 @@ static void fill_image(const PixelStorageModes *psm,
     }
 
     /* All formats except GL_BITMAP fall out trivially */
-    if (type == GL_BITMAP) {
-        GLint bit_offset;
-        GLint current_bit;
-
-        rowsize = (groups_per_line * components + 7) / 8;
-        padding = (rowsize % psm->unpack_alignment);
-        if (padding) {
-            rowsize += psm->unpack_alignment - padding;
-        }
-        start = (const GLubyte *) userdata + psm->unpack_skip_rows * rowsize +
-                (psm->unpack_skip_pixels * components / 8);
-        elements_per_line = width * components;
-        iter2 = newimage;
-        for (i = 0; i < height; i++) {
-            iter = start;
-            bit_offset = (psm->unpack_skip_pixels * components) % 8;
-            for (j = 0; j < elements_per_line; j++) {
-                /* Retrieve bit */
-                if (psm->unpack_lsb_first) {
-                    current_bit = iter[0] & (1 << bit_offset);
-                } else {
-                    current_bit = iter[0] & (1 << (7 - bit_offset));
-                }
-                if (current_bit) {
-                    if (index_format) {
-                        *iter2 = 1;
-                    } else {
-                        *iter2 = 65535;
-                    }
-                } else {
-                    *iter2 = 0;
-                }
-                bit_offset++;
-                if (bit_offset == 8) {
-                    bit_offset = 0;
-                    iter++;
-                }
-                iter2++;
-            }
-            start += rowsize;
-        }
-    } else {
+//     if (type == GL_BITMAP) {
+//         GLint bit_offset;
+//         GLint current_bit;
+//
+//         rowsize = (groups_per_line * components + 7) / 8;
+//         padding = (rowsize % psm->unpack_alignment);
+//         if (padding) {
+//             rowsize += psm->unpack_alignment - padding;
+//         }
+//         start = (const GLubyte *) userdata + psm->unpack_skip_rows * rowsize +
+//                 (psm->unpack_skip_pixels * components / 8);
+//         elements_per_line = width * components;
+//         iter2 = newimage;
+//         for (i = 0; i < height; i++) {
+//             iter = start;
+//             bit_offset = (psm->unpack_skip_pixels * components) % 8;
+//             for (j = 0; j < elements_per_line; j++) {
+//                 /* Retrieve bit */
+//                 if (psm->unpack_lsb_first) {
+//                     current_bit = iter[0] & (1 << bit_offset);
+//                 } else {
+//                     current_bit = iter[0] & (1 << (7 - bit_offset));
+//                 }
+//                 if (current_bit) {
+//                     if (index_format) {
+//                         *iter2 = 1;
+//                     } else {
+//                         *iter2 = 65535;
+//                     }
+//                 } else {
+//                     *iter2 = 0;
+//                 }
+//                 bit_offset++;
+//                 if (bit_offset == 8) {
+//                     bit_offset = 0;
+//                     iter++;
+//                 }
+//                 iter2++;
+//             }
+//             start += rowsize;
+//         }
+//     } else
+    {
         element_size = bytes_per_element(type);
         group_size = element_size * components;
         if (element_size == 1) myswap_bytes = 0;
@@ -5151,57 +5150,58 @@ static void empty_image(const PixelStorageModes *psm,
     }
 
     /* All formats except GL_BITMAP fall out trivially */
-    if (type == GL_BITMAP) {
-        GLint bit_offset;
-        GLint current_bit;
-
-        rowsize = (groups_per_line * components + 7) / 8;
-        padding = (rowsize % psm->pack_alignment);
-        if (padding) {
-            rowsize += psm->pack_alignment - padding;
-        }
-        start = (GLubyte *) userdata + psm->pack_skip_rows * rowsize +
-                (psm->pack_skip_pixels * components / 8);
-        elements_per_line = width * components;
-        iter2 = oldimage;
-        for (i = 0; i < height; i++) {
-            iter = start;
-            bit_offset = (psm->pack_skip_pixels * components) % 8;
-            for (j = 0; j < elements_per_line; j++) {
-                if (index_format) {
-                    current_bit = iter2[0] & 1;
-                } else {
-                    if (iter2[0] > 32767) {
-                        current_bit = 1;
-                    } else {
-                        current_bit = 0;
-                    }
-                }
-
-                if (current_bit) {
-                    if (psm->pack_lsb_first) {
-                        *iter |= (1 << bit_offset);
-                    } else {
-                        *iter |= (1 << (7 - bit_offset));
-                    }
-                } else {
-                    if (psm->pack_lsb_first) {
-                        *iter &= ~(1 << bit_offset);
-                    } else {
-                        *iter &= ~(1 << (7 - bit_offset));
-                    }
-                }
-
-                bit_offset++;
-                if (bit_offset == 8) {
-                    bit_offset = 0;
-                    iter++;
-                }
-                iter2++;
-            }
-            start += rowsize;
-        }
-    } else {
+//     if (type == GL_BITMAP) {
+//         GLint bit_offset;
+//         GLint current_bit;
+//
+//         rowsize = (groups_per_line * components + 7) / 8;
+//         padding = (rowsize % psm->pack_alignment);
+//         if (padding) {
+//             rowsize += psm->pack_alignment - padding;
+//         }
+//         start = (GLubyte *) userdata + psm->pack_skip_rows * rowsize +
+//                 (psm->pack_skip_pixels * components / 8);
+//         elements_per_line = width * components;
+//         iter2 = oldimage;
+//         for (i = 0; i < height; i++) {
+//             iter = start;
+//             bit_offset = (psm->pack_skip_pixels * components) % 8;
+//             for (j = 0; j < elements_per_line; j++) {
+//                 if (index_format) {
+//                     current_bit = iter2[0] & 1;
+//                 } else {
+//                     if (iter2[0] > 32767) {
+//                         current_bit = 1;
+//                     } else {
+//                         current_bit = 0;
+//                     }
+//                 }
+//
+//                 if (current_bit) {
+//                     if (psm->pack_lsb_first) {
+//                         *iter |= (1 << bit_offset);
+//                     } else {
+//                         *iter |= (1 << (7 - bit_offset));
+//                     }
+//                 } else {
+//                     if (psm->pack_lsb_first) {
+//                         *iter &= ~(1 << bit_offset);
+//                     } else {
+//                         *iter &= ~(1 << (7 - bit_offset));
+//                     }
+//                 }
+//
+//                 bit_offset++;
+//                 if (bit_offset == 8) {
+//                     bit_offset = 0;
+//                     iter++;
+//                 }
+//                 iter2++;
+//             }
+//             start += rowsize;
+//         }
+//     } else
+    {
         float shoveComponents[4];
 
         element_size = bytes_per_element(type);
@@ -6663,7 +6663,7 @@ static GLint imageSize3D(GLint width, GLint height, GLint depth,
     int bytes_per_row=        bytes_per_element(type) * width;
 
 assert(width > 0 && height > 0 && depth > 0);
-assert(type != GL_BITMAP);
+// assert(type != GL_BITMAP);
 
     return bytes_per_row * height * depth * components;
 } /* imageSize3D() */
@@ -7359,8 +7359,8 @@ int ScaleImage3D(GLenum format,
       return GL_INVALID_VALUE;
    }
 
-   if (!legalFormat(format) || !legalType(typeIn) || !legalType(typeOut) ||
-       typeIn == GL_BITMAP || typeOut == GL_BITMAP) {
+   if (!legalFormat(format) || !legalType(typeIn) || !legalType(typeOut) /*||
+       typeIn == GL_BITMAP || typeOut == GL_BITMAP*/) {
       return GL_INVALID_ENUM;
    }
    if (!isLegalFormatForPackedPixelType(format, typeIn)) {
@@ -7732,7 +7732,7 @@ static int Build3DMipmapLevelsCore(GLenum target, GLint internalFormat,
 
    assert(checkMipmapArgs(internalFormat,format,type) == 0);
    assert(width >= 1 && height >= 1 && depth >= 1);
-   assert(type != GL_BITMAP);
+//    assert(type != GL_BITMAP);
 
    srcImage = dstImage = NULL;
 
@@ -8443,9 +8443,9 @@ GLint Build3DMipmapLevels(GLenum target, GLint internalFormat,
        return GL_INVALID_VALUE;
    }
 
-   if(type == GL_BITMAP) {
-      return GL_INVALID_ENUM;
-   }
+//    if(type == GL_BITMAP) {
+//       return GL_INVALID_ENUM;
+//    }
 
    levels = computeLog(width);
    level = computeLog(height);
@@ -8479,9 +8479,9 @@ GLint Build3DMipmaps(GLenum target, GLint internalFormat,
        return GL_INVALID_VALUE;
    }
 
-   if(type == GL_BITMAP) {
-      return GL_INVALID_ENUM;
-   }
+//    if(type == GL_BITMAP) {
+//       return GL_INVALID_ENUM;
+//    }
 
    closestFit3D(target,width,height,depth,internalFormat,format,type,
                 &widthPowerOf2,&heightPowerOf2,&depthPowerOf2);
