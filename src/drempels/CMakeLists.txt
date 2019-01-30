@@ -27,3 +27,4 @@ include_directories(${ImageMagick_INCLUDE_DIRS})
 set(DREMPELS_DEPLIBS ${DEPLIBS} ${ImageMagick_LIBRARIES})
 build_addon(screensaver.rsxs.drempels DREMPELS DREMPELS_DEPLIBS)
 
+message(FATAL_ERROR "----------> ${ImageMagick_INCLUDE_DIRS}")
