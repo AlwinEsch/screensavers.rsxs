@@ -10,47 +10,47 @@ Standards-Version: 3.9.5
 Section: libs
 Homepage: http://kodi.org
 
-Package: kodi-screensaver-rsxs-euphoria
+Package: kodi-screensaver-rsxs-biof
 Section: libs
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Euphoria screensaver add-on for Kodi
- Euphoria screensaver add-on for Kodi
+Description: Biof screensaver add-on for Kodi
+ Biof screensaver add-on for Kodi
 
-Package: kodi-screensaver-rsxs-euphoria-dbg
+Package: kodi-screensaver-rsxs-biof-dbg
 Section: debug
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: debug symbols for Euphoria screensaver add-on for Kodi
- debug symbols for Euphoria screensaver add-on for Kodi
+Description: debug symbols for Biof screensaver add-on for Kodi
+ debug symbols for Biof screensaver add-on for Kodi
 
-Package: kodi-screensaver-rsxs-plasma
+Package: kodi-screensaver-rsxs-busyspheres
 Section: libs
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Plasma screensaver add-on for Kodi
- Plasma screensaver add-on for Kodi
+Description: Busy spheres screensaver add-on for Kodi
+ Busy spheres screensaver add-on for Kodi
 
-Package: kodi-screensaver-rsxs-plasma-dbg
+Package: kodi-screensaver-rsxs-busyspheres-dbg
 Section: debug
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: debug symbols for Plasma screensaver add-on for Kodi
- debug symbols for Plasma screensaver add-on for Kodi
+Description: debug symbols for Busy spheres screensaver add-on for Kodi
+ debug symbols for Busy spheres screensaver add-on for Kodi
 
-Package: kodi-screensaver-rsxs-solarwinds
+Package: kodi-screensaver-rsxs-colorfire
 Section: libs
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Solarwinds screensaver add-on for Kodi
- Solarwinds screensaver add-on for Kodi
+Description: Colorfire screensaver add-on for Kodi
+ Colorfire screensaver add-on for Kodi
 
-Package: kodi-screensaver-rsxs-solarwinds-dbg
+Package: kodi-screensaver-rsxs-colorfire-dbg
 Section: debug
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: debug symbols for Solarwinds screensaver add-on for Kodi
- debug symbols for Solarwinds screensaver add-on for Kodi
+Description: debug symbols for Colorfire screensaver add-on for Kodi
+ debug symbols for Colorfire screensaver add-on for Kodi
 
 Package: kodi-screensaver-rsxs-cyclone
 Section: libs
@@ -65,6 +65,48 @@ Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: debug symbols for Cyclone screensaver add-on for Kodi
  debug symbols for Cyclone screensaver add-on for Kodi
+
+Package: kodi-screensaver-rsxs-drempels
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Drempels screensaver add-on for Kodi
+ Drempels screensaver add-on for Kodi
+
+Package: kodi-screensaver-rsxs-drempels-dbg
+Section: debug
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: debug symbols for Drempels screensaver add-on for Kodi
+ debug symbols for Drempels screensaver add-on for Kodi
+
+Package: kodi-screensaver-rsxs-euphoria
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Euphoria screensaver add-on for Kodi
+ Euphoria screensaver add-on for Kodi
+
+Package: kodi-screensaver-rsxs-euphoria-dbg
+Section: debug
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: debug symbols for Euphoria screensaver add-on for Kodi
+ debug symbols for Euphoria screensaver add-on for Kodi
+
+Package: kodi-screensaver-rsxs-feedback
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Feedback screensaver add-on for Kodi
+ Feedback screensaver add-on for Kodi
+
+Package: kodi-screensaver-rsxs-feedback-dbg
+Section: debug
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: debug symbols for Feedback screensaver add-on for Kodi
+ debug symbols for Feedback screensaver add-on for Kodi
 
 Package: kodi-screensaver-rsxs-fieldlines
 Section: libs
@@ -122,6 +164,34 @@ Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: debug symbols for Helios screensaver add-on for Kodi
  debug symbols for Helios screensaver add-on for Kodi
 
+Package: kodi-screensaver-rsxs-hufo_smoke
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Hufo Smoke screensaver add-on for Kodi
+ Hufo Smoke screensaver add-on for Kodi
+
+Package: kodi-screensaver-rsxs-hufo_smoke-dbg
+Section: debug
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: debug symbols for Hufo Smoke screensaver add-on for Kodi
+ debug symbols for Hufo Smoke screensaver add-on for Kodi
+
+Package: kodi-screensaver-rsxs-hufo_tunnel
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: hufo Tunnel screensaver add-on for Kodi
+ hufo Tunnel screensaver add-on for Kodi
+
+Package: kodi-screensaver-rsxs-hufo_tunnel-dbg
+Section: debug
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: debug symbols for hufo Tunnel screensaver add-on for Kodi
+ debug symbols for hufo Tunnel screensaver add-on for Kodi
+
 Package: kodi-screensaver-rsxs-hyperspace
 Section: libs
 Architecture: any
@@ -150,6 +220,48 @@ Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: debug symbols for Lattice screensaver add-on for Kodi
  debug symbols for Lattice screensaver add-on for Kodi
 
+Package: kodi-screensaver-rsxs-lorenz
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Lorenz screensaver add-on for Kodi
+ Lorenz screensaver add-on for Kodi
+
+Package: kodi-screensaver-rsxs-lorenz-dbg
+Section: debug
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: debug symbols for Lorenz screensaver add-on for Kodi
+ debug symbols for Lorenz screensaver add-on for Kodi
+
+Package: kodi-screensaver-rsxs-matrixview
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: MatrixView screensaver add-on for Kodi
+ MatrixView screensaver add-on for Kodi
+
+Package: kodi-screensaver-rsxs-matrixview-dbg
+Section: debug
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: debug symbols for MatrixView screensaver add-on for Kodi
+ debug symbols for MatrixView screensaver add-on for Kodi
+
+Package: kodi-screensaver-rsxs-plasma
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Plasma screensaver add-on for Kodi
+ Plasma screensaver add-on for Kodi
+
+Package: kodi-screensaver-rsxs-plasma-dbg
+Section: debug
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: debug symbols for Plasma screensaver add-on for Kodi
+ debug symbols for Plasma screensaver add-on for Kodi
+
 Package: kodi-screensaver-rsxs-skyrocket
 Section: libs
 Architecture: any
@@ -164,3 +276,44 @@ Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: debug symbols for Skyrocket screensaver add-on for Kodi
  debug symbols for Skyrocket screensaver add-on for Kodi
 
+Package: kodi-screensaver-rsxs-solarwinds
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Solarwinds screensaver add-on for Kodi
+ Solarwinds screensaver add-on for Kodi
+
+Package: kodi-screensaver-rsxs-solarwinds-dbg
+Section: debug
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: debug symbols for Solarwinds screensaver add-on for Kodi
+ debug symbols for Solarwinds screensaver add-on for Kodi
+
+Package: kodi-screensaver-rsxs-spirographx
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: SpiroGraphX screensaver add-on for Kodi
+ SpiroGraphX screensaver add-on for Kodi
+
+Package: kodi-screensaver-rsxs-spirographx-dbg
+Section: debug
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: debug symbols for SpiroGraphX screensaver add-on for Kodi
+ debug symbols for SpiroGraphX screensaver add-on for Kodi
+
+Package: kodi-screensaver-rsxs-sundancer2
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: SunDancer2 screensaver add-on for Kodi
+ SunDancer2 screensaver add-on for Kodi
+
+Package: kodi-screensaver-rsxs-sundancer2-dbg
+Section: debug
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: debug symbols for SunDancer2 screensaver add-on for Kodi
+ debug symbols for SunDancer2 screensaver add-on for Kodi
