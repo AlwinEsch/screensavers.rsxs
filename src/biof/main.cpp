@@ -140,7 +140,7 @@ bool CScreensaverBiof::Start()
   }
   else if (m_geometry == POINTS)
   {
-#if !defined(HAS_GLES)
+#if !defined(HAS_GLES) && !defined(TARGET_DARWIN)
     // TODO: Bring in a way about in GLES 2.0 and above!
     glHint(GL_POINT_SMOOTH_HINT, GL_NICEST);
     glPointSize(3);
